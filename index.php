@@ -26,6 +26,10 @@
         {
             $answer = "Hello";
         }
+        else if ($messageText == "coffee")
+        {
+            $answer = "Please Select Coffee";
+        }
         else
         {
 
