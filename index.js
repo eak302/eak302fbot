@@ -1,22 +1,11 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var request = require('request');
-var app = express();
+var http = require('http');
 
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
-app.listen((process.env.PORT || 3000));
-
-// Server frontpage
-app.get('/', function (req, res) {
-    res.send('This is TestBot Server');
+// ตั้งค่า server ให้แสดงผลคำว่า "Hello World" ส่งกลับไปที่ client
+var server = http.createServer(function (request, response) {
+  response.writeHead(200, {"Content-Type": "text/plain"});
+  response.end("Hello World\n");
 });
-
-// Facebook Webhook
-app.get('/webhook', function (req, res) {
-    if (req.query['hub.verify_token'] === 'testbot_verify_token') {
-        res.send(req.query['hub.challenge']);
-    } else {
-        res.send('Invalid verify token');
-    }
-});
+ 
+// กำหนด port ให้ server เป็น port 8000
+server.listen(8000);
+console.log("Server running at http://127.0.0.1:8000/");
