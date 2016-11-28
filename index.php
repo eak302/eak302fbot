@@ -24,7 +24,7 @@
     {
         if($messageText == "hi")
         {
-            $answer = "Hello";
+            $answer = "Hello".$senderId;
         }
         else if ($messageText == "coffee")
         {
