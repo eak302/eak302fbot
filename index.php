@@ -8,7 +8,7 @@
 
     // parameters
     $hubVerifyToken = 'TOKEN123456abcd';
-    $accessToken = "EAAX7OvvVP7kBAJ69kSW7eYRoL8a7a5stMVnZAuxEOxn3oSNhcMRlpDU6Kf9DJRdSM6eNTXtidyj69UXXuIdwdZCmMja0CWCkqKCyFISZBamwx8gHs3F0cWsrs0cswLVyedWLGNpXmZBOES3H38aT31bjJ7tH2DL3Azb4mHAqqAZDZD";
+    $accessToken = "EAADTFcQQuJcBAEZBZA4Ju5LyZAwrbkhVMmPwDSrGhKTzLzXKmEwObVxzpc6R8mlm3mlrTP0cfEAcBEURjpq4GFwJrpAz9w0CRLky2IPAAkZCe1MDbPynZCqdcV2J4agSu0PutqdoeTQ0COeA27aMZCRoLB55mMldNv77LLdowdsgZDZD";
     // check token at setup
     if ($_REQUEST['hub_verify_token'] === $hubVerifyToken) {
       echo $_REQUEST['hub_challenge'];
@@ -19,12 +19,13 @@
     $senderId = $input['entry'][0]['messaging'][0]['sender']['id'];
     $messageText = $input['entry'][0]['messaging'][0]['message']['text'];
     $answer = "I don't understand. Ask me 'hi'.";
+    $sender_action = $inpur['entry'][0]['sender_action'];
 
     if ($messageText != "")
     {
         if($messageText == "hi")
         {
-            $answer = "Hello".$senderId;
+            $answer = "Hello".$senderId." action is: ".$sender_action;
         }
         else if ($messageText == "coffee")
         {
