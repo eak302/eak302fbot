@@ -19,7 +19,7 @@
     $senderId = $input['entry'][0]['messaging'][0]['sender']['id'];
     $messageText = $input['entry'][0]['messaging'][0]['message']['text'];
     $answer = "I don't understand. Ask me 'hi'.";
-    $sender_action = $inpur['entry'][0]['sender_action'];
+    $sender_action = $inpur['entry'][0]['messaging']['sender_action']['typing_on'];
 
     if ($messageText != "")
     {
